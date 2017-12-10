@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="mgh" authorities="ROLE_USER"
+					password="hansung" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	
+	<security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/createoffer"
+			access="permitAll" />
+			<security:intercept-url pattern="/offerstwo"
+			access="permitAll" />
+			<security:intercept-url pattern="/offers"
+			access="permitAll" />
+			<security:intercept-url pattern="/detail" access="permitAll" />
+			<security:intercept-url pattern="/detail2" access="permitAll" />
+			<security:intercept-url pattern="/detail3" access="permitAll" />
+			<security:intercept-url pattern="/detail4" access="permitAll" />
+			<security:intercept-url pattern="/detail5" access="permitAll" />
+			<security:intercept-url pattern="/detail6" access="permitAll" />
+			<security:intercept-url pattern="/detail7" access="permitAll" />
+			<security:intercept-url pattern="/offercreated" access="permitAll" />
+			<security:intercept-url pattern="/insertInfo" access="permitAll" />
+			<security:intercept-url pattern="/docreate" access="permitAll" />
+			<security:intercept-url pattern="/resources/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/" access="isAuthenticated()" />
+		<security:intercept-url pattern="/**" access="denyAll" />
+		
+	</security:http>
+</beans>
